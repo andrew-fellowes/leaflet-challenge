@@ -57,9 +57,9 @@ d3.json(link).then(function (data) {
         const day = dateObject.getDate()
         const month = dateObject.getMonth() + 1 // Jan is month 0 so add 1
         const year = dateObject.getFullYear()
-        const hours = dateObject.getHours()
-        const minutes = dateObject.getMinutes()
-        const seconds = dateObject.getSeconds()
+        const hours = String(dateObject.getHours()).padStart(2,'0')
+        const minutes = String(dateObject.getMinutes()).padStart(2,'0')
+        const seconds = String(dateObject.getSeconds()).padStart(2,'0')
       
         // Format the date and time
         const formattedDate = `${day}/${month}/${year}`
@@ -87,6 +87,7 @@ d3.json(link).then(function (data) {
                 feature.properties.title
                 + "<br>Depth: "
                 + feature.geometry.coordinates[2]
+                + "km"
                 + "<br>Date/Time: "
                 + convertTimestamp(feature.properties.time)
             )
